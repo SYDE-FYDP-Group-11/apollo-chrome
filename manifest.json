@@ -6,7 +6,7 @@
     "content_scripts": [
       {
         "matches": ["https://twitter.com/*"],
-        "run_at": "document_start",
+        "run_at": "document_end",
         "js": [
           "external/jquery-3.5.1.min.js",
           "hoth.js"
