@@ -1,0 +1,7 @@
+  {
+    "name": "Hoth",
+    "version": "0.1",
+    "description": "Prototype twitter article checker",
+    "permissions": ["storage"],
+    "manifest_version": 1
+  }
