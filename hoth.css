@@ -1,0 +1,18 @@
+.hoth {
+  background: lightblue;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+@keyframes flash {
+  0% {background-color: greenyellow;}
+  50% {background-color: hotpink;}
+  100% {background-color: greenyellow;}
+}
+
+.hoth:hover {
+  animation-name: flash;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
