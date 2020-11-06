@@ -2,7 +2,7 @@
     "name": "Hoth",
     "version": "0.1",
     "description": "Prototype twitter article checker",
-    "permissions": ["activeTab", "storage"],
+    "permissions": ["activeTab", "storage", "https://hoth-server.herokuapp.com/"],
     "content_scripts": [
       {
         "matches": ["https://twitter.com/*"],
@@ -15,5 +15,9 @@
         "css": ["hoth.css"]
       }
     ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
     "manifest_version": 2
   }
