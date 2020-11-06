@@ -9,6 +9,7 @@
         "run_at": "document_end",
         "js": [
           "server_connector.js",
+          "indicators.js",
           "annotator.js",
           "hoth.js"
         ],
