@@ -1,8 +1,5 @@
 const createAnnotator = function(article) {
   return function (annotations) {
-    // Temporary 
-    const tags = {'one': true, 'two': false, 'three': false}
-
     let actionBox = article.querySelector('[role="group"]');
     let hothBox = document.createElement("div");
     hothBox.className = "hoth";
@@ -10,7 +7,7 @@ const createAnnotator = function(article) {
     let hothBoxInner = document.createElement("div");
     hothBox.appendChild(hothBoxInner);
 
-    Object.entries(tags)
+    Object.entries(annotations)
       .map(toIndicator)
       .forEach(hothBoxInner.appendChild.bind(hothBoxInner));
 
