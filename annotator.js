@@ -41,7 +41,7 @@ const toIndicator = function([key, value]) {
     let name = indicators[key]["name"];
     span.appendChild(createIndicatorValueElement(name));
   } else if (indicators[key]["type"] == "count_found") {
-    span.className += " hoth-" + (value > 0).toString();
+    span.className += " hoth-" + (value == 0).toString();
     let name = document.createTextNode(indicators[key]["name"] + ": ");
     let indicatorValue = value + " found";
 
