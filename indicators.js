@@ -18,7 +18,7 @@ const indicators = {
     "type": "single_word"
   },
   "evidenceCited": {
-    "name": "suspicious",
+    "name": "evidence",
     "type": "bool",
     "bool_copy": "sus"
   },
