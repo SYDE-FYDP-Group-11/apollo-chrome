@@ -13,26 +13,36 @@
   margin-top: 0;
 }
 
-@keyframes flash {
-  0% {background-color: greenyellow;}
-  50% {background-color: hotpink;}
-  100% {background-color: greenyellow;}
-}
-
 .hoth > div {
   margin-left: -6px;
   margin-right: -6px;
 }
 
-.hoth .hoth-indicator:hover {
-  animation-name: flash;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-}
-
 .hoth .hoth-indicator {
   margin: 5px 5px;
   padding: 5px;
-  border: 1px solid green;
+  border: 1px solid #343434;
+  color: #343434;
+  font-size: 10pt;
+  border-radius: 8px;
   display: inline-block;
+}
+
+.hoth .hoth-indicator.hoth-true, .hoth .hoth-indicator.hoth-false {
+  border-left-width: 4px;
+}
+
+.hoth .hoth-indicator.hoth-true {
+  border-color: #74B457;
+  background-color: #F2FFEC;
+}
+
+.hoth .hoth-indicator.hoth-false {
+  border-color: #FFC700;
+  background-color: #FFF9E5;
+}
+
+.hoth .hoth-indicator .hoth-value {
+  font-weight: bold;
+  text-transform: uppercase;
 }
