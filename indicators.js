@@ -1,34 +1,34 @@
 const indicators = {
   "highCoverage": { 
-    "name": "topic coverage",
+    "name": "Topic coverage",
     "type": "bool",
     "bool_copy": "high_low"
   },
   "highPublisherQuality": {
-    "name": "publisher quality",
+    "name": "Publisher quality",
     "type": "bool",
     "bool_copy": "high_low"
   },
   "publisherBias": {
-    "name": "publisher bias",
+    "name": "Publisher bias",
     "type": "left_right"
   },
   "notSatire": {
-    "name": "satire",
+    "name": "Satire",
     "type": "single_word"
   },
   "evidenceCited": {
-    "name": "evidence",
+    "name": "Evidence",
     "type": "bool",
     "bool_copy": "sus"
   },
   "authorVerified": {
-    "name": "author",
+    "name": "Author",
     "type": "bool",
     "bool_copy": "verif_unverif"
   },
   "imagesManipulated": {
-    "name": "manipulated images(s)",
+    "name": "Manipulated image(s)",
     "type": "count_found"
   },
   "urlNotSuspicious": {
@@ -37,7 +37,7 @@ const indicators = {
     "bool_copy": "sus"
   },
   "headlineNotSuspicious": {
-    "name": "headline",
+    "name": "Headline",
     "type": "bool",
     "bool_copy": "sus"
   }
