@@ -1,8 +1,8 @@
   {
-    "name": "Hoth",
-    "version": "0.1",
+    "name": "Apollo",
+    "version": "1.0.0",
     "description": "Prototype twitter article checker",
-    "permissions": ["activeTab", "storage", "https://hoth-server.herokuapp.com/"],
+    "permissions": ["activeTab", "storage", "https://apollo3.nn.r.appspot.com/"],
     "content_scripts": [
       {
         "matches": ["https://twitter.com/*"],
@@ -11,9 +11,9 @@
           "server_connector.js",
           "indicators.js",
           "annotator.js",
-          "hoth.js"
+          "apollo.js"
         ],
-        "css": ["hoth.css"]
+        "css": ["apollo.css"]
       }
     ],
     "background": {

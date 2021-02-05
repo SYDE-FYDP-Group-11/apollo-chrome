@@ -1,18 +1,18 @@
 const createAnnotator = function(article) {
   return function (annotations) {
     let actionBox = article.querySelector('[role="group"]');
-    let hothBox = document.createElement("div");
-    hothBox.className = "hoth";
+    let apolloBox = document.createElement("div");
+    apolloBox.className = "apollo";
 
-    let hothBoxInner = document.createElement("div");
-    hothBox.appendChild(hothBoxInner);
+    let apolloBoxInner = document.createElement("div");
+    apolloBox.appendChild(apolloBoxInner);
 
     Object.entries(annotations)
       .map(toIndicator)
       .filter(x => x)
-      .forEach(hothBoxInner.appendChild.bind(hothBoxInner));
+      .forEach(apolloBoxInner.appendChild.bind(apolloBoxInner));
 
-    actionBox.insertAdjacentElement("beforebegin", hothBox);
+    actionBox.insertAdjacentElement("beforebegin", apolloBox);
   }
 };
 
@@ -21,10 +21,10 @@ const toIndicator = function([key, value]) {
     return;
 
   let span = document.createElement("span");
-  span.className = "hoth-indicator";
+  span.className = "apollo-indicator";
 
   if (indicators[key]["type"] == "bool") {
-    span.className += " hoth-" + value.toString();
+    span.className += " apollo-" + value.toString();
     let name = document.createTextNode(indicators[key]["name"] + ": ");
     let indicatorValue = boolCopy[indicators[key]["bool_copy"]][value];
 
@@ -36,12 +36,12 @@ const toIndicator = function([key, value]) {
   } else if (indicators[key]["type"] == "single_word") {
     if (value)
       return;
-    span.className += " hoth-" + value.toString();
+    span.className += " apollo-" + value.toString();
 
     let name = indicators[key]["name"];
     span.appendChild(createIndicatorValueElement(name));
   } else if (indicators[key]["type"] == "count_found") {
-    span.className += " hoth-" + (value == 0).toString();
+    span.className += " apollo-" + (value == 0).toString();
     let name = document.createTextNode(indicators[key]["name"] + ": ");
     let indicatorValue = value + " found";
 
@@ -54,7 +54,7 @@ const toIndicator = function([key, value]) {
 
 const createIndicatorValueElement = function(value) {
   let indicator_value_element = document.createElement("span");
-  indicator_value_element.className = "hoth-value";
+  indicator_value_element.className = "apollo-value";
   indicator_value_element.appendChild(document.createTextNode(value));
   return indicator_value_element
 }

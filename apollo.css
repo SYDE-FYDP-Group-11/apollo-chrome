@@ -1,4 +1,4 @@
-.hoth {
+.apollo {
   margin-top: 10px;
   padding: 5px 0;
   border-top: solid 1px #e6ecf0;
@@ -9,16 +9,16 @@
 }
 
 /* When the tweet is selected */
-.hoth:nth-child(5) {
+.apollo:nth-child(5) {
   margin-top: 0;
 }
 
-.hoth > div {
+.apollo > div {
   margin-left: -6px;
   margin-right: -6px;
 }
 
-.hoth .hoth-indicator {
+.apollo .apollo-indicator {
   margin: 5px 5px;
   padding: 5px;
   border: 1px solid #343434;
@@ -29,21 +29,21 @@
   display: inline-block;
 }
 
-.hoth .hoth-indicator.hoth-true, .hoth .hoth-indicator.hoth-false {
+.apollo .apollo-indicator.apollo-true, .apollo .apollo-indicator.apollo-false {
   border-left-width: 4px;
 }
 
-.hoth .hoth-indicator.hoth-true {
+.apollo .apollo-indicator.apollo-true {
   border-color: #74B457;
   background-color: #F2FFEC;
 }
 
-.hoth .hoth-indicator.hoth-false {
+.apollo .apollo-indicator.apollo-false {
   border-color: #FFC700;
   background-color: #FFF9E5;
 }
 
-.hoth .hoth-indicator .hoth-value {
+.apollo .apollo-indicator .apollo-value {
   font-weight: bold;
   text-transform: uppercase;
 }

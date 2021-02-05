@@ -39,7 +39,7 @@ const tweetObserverCallback = function (mutationsList, observer) {
 }
 
 const processArticle = function(article) {
-  if (article.dataset.hothed)
+  if (article.dataset.apolloed)
     return;
 
   // Right now just take the first link
@@ -47,7 +47,7 @@ const processArticle = function(article) {
   if (link) {
     const annotateArticle = createAnnotator(article);
     getAnnotations(link.getAttribute("href"), annotateArticle);
-    article.dataset.hothed = true;
+    article.dataset.apolloed = true;
   }
 };
 
