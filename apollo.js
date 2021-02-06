@@ -27,13 +27,13 @@ const toArticle = function (record) {
 const processChange = function(mutationsList) {
   mutationsList.map(toArticle).filter(x => x)
     .forEach(function(article) {
-      processArticle(article)
-      tweetObserver.observe(article, observerConfig)
+      processArticle(article);
+      tweetObserver.observe(article, observerConfig);
     });
 };
 
 const tweetObserverCallback = function (mutationsList, observer) {
-  let article = mutationsList[0].target.closest("article");
+  const article = mutationsList[0].target.closest("article");
   if (article)
     processArticle(article);
 }
@@ -42,13 +42,14 @@ const processArticle = function(article) {
   if (article.dataset.apolloed)
     return;
 
-  // Right now just take the first link
-  const link = article.querySelector('a[href*="t.co"]');
-  if (link) {
-    const annotateArticle = createAnnotator(article);
-    getAnnotations(link.getAttribute("href"), annotateArticle);
-    article.dataset.apolloed = true;
-  }
+  const tweet_link = article.querySelector('a[href*="/status/"]');
+  if (!tweet_link)
+    return
+  const tweet_id = tweet_link.getAttribute("href").split("/").pop();
+
+  const annotateArticle = createAnnotator(article);
+  getAnnotations(tweet_id, annotateArticle);
+  article.dataset.apolloed = true;
 };
 
 const tweetObserver = new MutationObserver(tweetObserverCallback);
