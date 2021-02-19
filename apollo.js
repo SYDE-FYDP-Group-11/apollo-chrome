@@ -45,10 +45,13 @@ const processArticle = function(article) {
   const tweet_link = article.querySelector('a[href*="/status/"]');
   if (!tweet_link)
     return
-  const tweet_id = tweet_link.getAttribute("href").split("/").pop();
+  const regex = /(?<=\/status\/)[0-9]+/;
+  const tweet_id = tweet_link.getAttribute("href").match(regex)[0];
 
+  const button = addButton(article);
   const annotateArticle = createAnnotator(article);
-  getAnnotations(tweet_id, annotateArticle);
+  button.onclick = (() => getAnnotations(tweet_id, annotateArticle));
+
   article.dataset.apolloed = true;
 };
 

@@ -2,7 +2,7 @@
     "name": "Apollo",
     "version": "1.0.0",
     "description": "Prototype twitter article checker",
-    "permissions": ["activeTab", "storage", "https://apollo3.nn.r.appspot.com/"],
+    "permissions": ["activeTab", "https://apollo3.nn.r.appspot.com/"],
     "content_scripts": [
       {
         "matches": ["https://twitter.com/*"],
