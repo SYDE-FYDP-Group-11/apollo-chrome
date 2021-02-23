@@ -50,7 +50,8 @@ const processArticle = function(article) {
 
   const button = addButton(article);
   const annotateArticle = createAnnotator(article);
-  button.onclick = (() => getAnnotations(tweet_id, annotateArticle));
+  // button.onclick = (() => getAnnotations(tweet_id, annotateArticle));
+  button.onclick = (() => requestTweetData(tweet_id));
 
   article.dataset.apolloed = true;
 };
