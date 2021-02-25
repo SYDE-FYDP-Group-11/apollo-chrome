@@ -50,10 +50,15 @@ const processArticle = function(article) {
 
   const button = addButton(article);
   const annotateArticle = createAnnotator(article);
-  button.onclick = (() => getAnnotations(tweet_id, annotateArticle));
+  button.onclick = () => {
+    sidebar.open();
+    getAnnotations(tweet_id, sidebar.add_text.bind(sidebar));
+  };
 
   article.dataset.apolloed = true;
 };
+
+const sidebar = new Sidebar();
 
 const tweetObserver = new MutationObserver(tweetObserverCallback);
 
