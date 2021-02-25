@@ -1,7 +1,7 @@
   {
     "name": "Apollo",
     "version": "1.0.0",
-    "description": "Prototype twitter article checker",
+    "description": "Browser extension to help users avoid information disorder on Twitter",
     "permissions": ["activeTab", "https://apollo3.nn.r.appspot.com/"],
     "content_scripts": [
       {
