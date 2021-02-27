@@ -10,7 +10,6 @@
         "js": [
           "sidebar.js",
           "server_connector.js",
-          "indicators.js",
           "annotator.js",
           "apollo.js"
         ],
