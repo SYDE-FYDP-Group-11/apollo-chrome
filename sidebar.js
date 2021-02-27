@@ -98,4 +98,3 @@ class Sidebar {
     this.related.innerHTML = html
   }
 }
-
