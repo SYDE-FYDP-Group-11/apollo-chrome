@@ -66,3 +66,8 @@ body::-webkit-scrollbar {
 .apollo-hidden {
   display: none;
 }
+
+.apollo-divider {
+  border-bottom: 1px solid darkgray;
+  margin: 5px
+}

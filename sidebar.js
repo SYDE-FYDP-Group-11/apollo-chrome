@@ -10,23 +10,24 @@ class Sidebar {
       <div class="apollo-box">
         <div>
           <img id="apollo-image"></img> 
-          <div>Headline</div>
-          <a id="apollo-headline"></a>
-          <div>Excerpt</div>
+          <h1>Headline</h1>
+          <div id="apollo-headline"></div>
           <div id="apollo-excerpt"></div>
-          <div>Site</div>
-          <div id="apollo-site"></div>
-          <div>Last Updated <span id="apollo-date"></span></div>
+          <div>Site: <span id="apollo-site"></span></div>
+          <div>Last updated <span id="apollo-date"></span></div>
         </div>
+        <div class="apollo-divider"></div>
         <div>
-          <div>Author</div>
+          <h1>Author</h1>
           <div id="apollo-author"></div>
         </div>
+        <div class="apollo-divider"></div>
         <div>
-          <div>Sentiment Analysis</div>
+          <h1>Sentiment Analysis</h1>
         </div>
+        <div class="apollo-divider"></div>
         <div>
-          <div>Related Articles</div>
+          <h1>Related Articles</h1>
           <div id="apollo-related"></div>
         </div>
       </div>
@@ -72,10 +73,9 @@ class Sidebar {
       this.image.classList.remove("apollo-hidden")
     }
     this.headline.innerHTML = json.title
-    this.headline.href = json.url
     this.excerpt.innerHTML = json.excerpt
     this.site.innerHTML = json.site
-    this.date.innerHTML = json.date
+    this.date.innerHTML = (new Date(json.date)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: "numeric", minute: "numeric" })
     this.author.innerHTML = json.byline
   }
 
