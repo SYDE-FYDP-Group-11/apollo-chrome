@@ -11,7 +11,7 @@ class Sidebar {
         <div>
           <img id="apollo-image"></img> 
           <div>Headline</div>
-          <div id="apollo-headline"></div>
+          <a id="apollo-headline"></a>
           <div>Excerpt</div>
           <div id="apollo-excerpt"></div>
           <div>Site</div>
@@ -21,6 +21,13 @@ class Sidebar {
         <div>
           <div>Author</div>
           <div id="apollo-author"></div>
+        </div>
+        <div>
+          <div>Sentiment Analysis</div>
+        </div>
+        <div>
+          <div>Related Articles</div>
+          <div id="apollo-related"></div>
         </div>
       </div>
     `
@@ -34,6 +41,7 @@ class Sidebar {
     this.site = document.getElementById('apollo-site')
     this.date = document.getElementById('apollo-date')
     this.author = document.getElementById('apollo-author')
+    this.related = document.getElementById('apollo-related')
   }
 
   clear() {
@@ -45,6 +53,7 @@ class Sidebar {
     this.site.innerHTML = null
     this.date.innerHTML = null
     this.author.innerHTML = null
+    this.related.innerHTML = null
   }
 
   open() {
@@ -63,6 +72,7 @@ class Sidebar {
       this.image.classList.remove("apollo-hidden")
     }
     this.headline.innerHTML = json.title
+    this.headline.href = json.url
     this.excerpt.innerHTML = json.excerpt
     this.site.innerHTML = json.site
     this.date.innerHTML = json.date
@@ -74,7 +84,18 @@ class Sidebar {
   }
 
   addRelatedArticles(json) {
-    // this.textbox.innerHTML = JSON.stringify(json, null, 2);
+    let html = `<div>We found ${json.length} articles related to this headline</div>`
+    json.forEach(article => {
+      html += `
+        <div>
+          <img src=${article.image}></img>
+          <a href=${article.url}>${article.title}</a>
+          <div>${article.source}</div>
+        </div>
+      `
+    })
+
+    this.related.innerHTML = html
   }
 }
 
