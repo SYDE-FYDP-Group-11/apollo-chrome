@@ -49,23 +49,17 @@ const processArticle = function(article) {
   const tweet_id = tweet_link.getAttribute("href").match(regex)[0];
 
   const button = addButton(article);
-  const annotateArticle = createAnnotator(article);
   button.onclick = () => {
     sidebar.open();
-    // TODO: Show tweet data in sidebar
-    // requestTweetData is used to send a message from the content script to the background script
-    // The background script receives the message with the tweet_id and establishes a connection with the server
-    // Whenever a piece of data is available from the server, it sends it back to the background script
-    // The background script parses the data and sends it as a JSON object to the content script
-    // The content script handles which functions are called next
-    // The connection with the server remains open until all Tweet data is sent back
-    requestTweetData(tweet_id);
+    serverConnector.requestTweetData(tweet_id);
   };
 
   article.dataset.apolloed = true;
 };
 
 const sidebar = new Sidebar();
+
+const serverConnector = new ServerConnector(sidebar)
 
 const tweetObserver = new MutationObserver(tweetObserverCallback);
 
