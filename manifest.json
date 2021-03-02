@@ -13,12 +13,17 @@
           "annotator.js",
           "apollo.js"
         ],
-        "css": ["apollo.css"]
+        "css": ["apollo.css", "loading_icons.css"]
       }
     ],
     "background": {
       "scripts": ["background.js"],
       "persistent": false
     },
+    "web_accessible_resources": [
+      "fonts/inter_variable.ttf",
+      "fonts/playfair_display_variable.ttf",
+      "img/Profile.svg"
+    ],
     "manifest_version": 2
   }

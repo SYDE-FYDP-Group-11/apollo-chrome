@@ -42,6 +42,9 @@ const processArticle = function(article) {
   if (article.dataset.apolloed)
     return;
 
+  if (!article.querySelector('a[href^="https://t.co/"]'))
+    return;
+
   const tweet_link = article.querySelector('a[href*="/status/"]');
   if (!tweet_link)
     return
