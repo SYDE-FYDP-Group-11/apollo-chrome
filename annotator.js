@@ -3,7 +3,13 @@ const addButton = function(article) {
   actionBox.classList.add("apollo-has-button");
   let button = document.createElement("button");
   button.classList = "apollo-button"
-  button.appendChild(document.createTextNode("Apollo!"));
+  button.append("Apollo");
   actionBox.appendChild(button);
   return button;
+}
+
+// TODO: I no longer think we should highlight links
+const highlightLink = function(link) {
+  if (!link.querySelector('div'))
+    link.dataset.apolloLink = 'highlighted';
 }

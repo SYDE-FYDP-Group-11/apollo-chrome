@@ -1,5 +1,6 @@
 const profile_img = chrome.extension.getURL('img/Profile.svg');
 const fallback_img = chrome.extension.getURL('img/fallback_thumbnail.jpg');
+const close_img = chrome.extension.getURL('img/xbutton.png');
 const loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
 class Sidebar {
@@ -9,7 +10,9 @@ class Sidebar {
     this.sidebar.innerHTML = `
       <div class="apollo-header">
         Apollo
-        <span class="apollo-close" id="apollo-close">\u2A2F</span>
+        <a class="apollo-close" id="apollo-close">
+          <img src="${close_img}" alt="close"></img>
+        </a>
       </div>
       <div class="apollo-box">
         <img id="apollo-image" class="apollo-hidden"></img> 

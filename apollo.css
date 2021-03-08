@@ -10,19 +10,12 @@
   src: url("chrome-extension://__MSG_@@extension_id__/fonts/playfair_display_variable.ttf");
 }
 
-/* For testing */
-pre.apollo-text {
-  white-space: pre-wrap;
-  margin: 0;
-}
-
 body.noscroll::-webkit-scrollbar { 
   width: 0 !important;
   display: none; 
 }
 
 .apollo {
-  /*color: #657786;*/
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Ubuntu,
     "Helvetica Neue", sans-serif;
@@ -81,12 +74,11 @@ body.noscroll::-webkit-scrollbar {
   position: absolute;
   right: 0;
   background-color: #DBFF00;
-  color: black;
   height: 100%;
   width: 50px;
-  text-align: center;
-  font-size: 22pt;
-  line-height: 45px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -145,7 +137,7 @@ body.noscroll::-webkit-scrollbar {
 }
 
 #apollo-date span, #apollo-author {
-  font-weight: 500;
+  font-weight: bold;
 }
 
 #apollo-author > embed {
@@ -195,4 +187,8 @@ a.apollo-related-article {
 .apollo [data-tooltip] > embed {
   height: 16px;
   margin-left: 5px;
+}
+
+[data-apollo-link="highlighted"] {
+  background-color: #DBFF00 !important;
 }

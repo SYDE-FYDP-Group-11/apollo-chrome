@@ -42,7 +42,8 @@ const processArticle = function(article) {
   if (article.dataset.apolloed)
     return;
 
-  if (!article.querySelector('a[href^="https://t.co/"]'))
+  const article_link = article.querySelector('a[href^="https://t.co/"]');
+  if (!article_link)
     return;
 
   const tweet_link = article.querySelector('a[href*="/status/"]');
@@ -56,6 +57,9 @@ const processArticle = function(article) {
     sidebar.open();
     serverConnector.requestTweetData(tweet_id);
   };
+
+  highlightLink(article_link);
+  console.log(article_link);
 
   article.dataset.apolloed = true;
 };
