@@ -105,6 +105,8 @@ body.noscroll::-webkit-scrollbar {
 }
 
 .apollo-section-header {
+  display: flex;
+  align-items: center;
   text-transform: uppercase;
   font-family: "inter";
   font-variation-settings: 'wght' 600;
@@ -182,4 +184,15 @@ a.apollo-related-article {
   font-variation-settings: 'wght' 700;
   line-height: 130%;
   margin-bottom: 5px;
+}
+
+.apollo [data-tooltip] {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Ubuntu,
+    "Helvetica Neue", sans-serif;
+}
+
+.apollo [data-tooltip] > embed {
+  height: 16px;
+  margin-left: 5px;
 }
