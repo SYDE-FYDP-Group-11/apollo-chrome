@@ -26,6 +26,7 @@ class Sidebar {
           <div class="apollo-divider"></div>
           <div>
             <div class="apollo-section-header">Sentiment Analysis</div>
+            <div id="apollo-sentiment"></div>
           </div>
           <div class="apollo-divider"></div>
           <div>
@@ -43,6 +44,7 @@ class Sidebar {
     this.headline = document.getElementById('apollo-headline');
     this.date = document.getElementById('apollo-date');
     this.author = document.getElementById('apollo-author');
+    this.sentiment = document.getElementById('apollo-sentiment');
     this.related = document.getElementById('apollo-related');
   }
 
@@ -52,6 +54,7 @@ class Sidebar {
     this.headline.innerHTML = loading_html;
     this.date.innerHTML = null;
     this.author.innerHTML = loading_html;
+    this.sentiment.innerHTML = loading_html;
     this.related.innerHTML = loading_html;
   }
 
@@ -89,7 +92,30 @@ class Sidebar {
   }
 
   addSentimentAnalysis(json) {
-    // TODO
+    let position = ((json.score + 1) / 2) * 100
+    let type = json.score > 0 ? 'positive' : 'negative'
+    let alpha = Math.abs(json.score)
+
+    let html = `
+      <div>This article uses language that is...</div>
+      <figure class="apollo-plot">
+        <ul class="apollo-line">
+          <li>
+            <div class="apollo-point apollo-point-background" style="left: ${position}%;"></div>
+          </li>
+          <li>
+            <div class="apollo-point apollo-point-${type}" style="left: ${position}%; --alpha: ${alpha}"></div>
+          </li>
+          <li>
+            <div class="apollo-midpoint"></div>
+          </li>
+        </ul>
+      </figure>
+      <div style="float: left">Negative</div>
+      <div style="float: right">Positive</div>
+      <div style="margin: 0 auto; width: 200px; text-align:center">Neutral or Mixed</div>
+    `
+    this.sentiment.innerHTML = html;
   }
 
   addRelatedArticles(json) {
