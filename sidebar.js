@@ -115,7 +115,7 @@ class Sidebar {
     let html = `<div>We found ${json.length} articles related to this headline</div>`;
     json.forEach(article => {
       html += `
-        <a href=${article.url} class="apollo-related-article">
+        <a href=${article.url} class="apollo-related-article" target="_blank" rel="noopener noreferrer">
           <img src=${article.image}></img>
           <div>
             <div>${article.title}</div>
