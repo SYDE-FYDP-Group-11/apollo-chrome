@@ -3,6 +3,8 @@ const loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div
 
 class Sidebar {
   constructor() {
+    this.past_sentiments = []
+
     this.sidebar = document.createElement("div");
     this.sidebar.className = "apollo-sidebar apollo apollo-hidden-sidebar";
     this.sidebar.innerHTML = `
@@ -93,16 +95,18 @@ class Sidebar {
         { year: 'numeric',
           month: 'short',
           day: 'numeric',
-          hour: "numeric",
-          minute: "numeric" })
-      : "Unknown";
+          hour: 'numeric',
+          minute: 'numeric' })
+      : 'Unknown';
     this.date.innerHTML = `Last Updated <span>${date}</span>`;
 
     let author = json.byline ? json.byline : 'Unknown';
     this.author.innerHTML = `<embed src="${profile_img}">` + author;
   }
 
-  addSentimentAnalysis(json) {
+  addSentimentAnalysis(json, tweet_id) {    
+    this.past_sentiments = this.past_sentiments.filter(past => past.tweet_id != tweet_id)
+    
     let position = ((json.score + 1) / 2) * 100
     let type = json.label
     let alpha = Math.abs(json.score)
@@ -120,6 +124,16 @@ class Sidebar {
           <li>
             <div class="apollo-point apollo-point-${type}" style="left: ${position}%; --alpha: ${alpha};"></div>
           </li>
+    `
+    this.past_sentiments.forEach(past => {
+      html += `
+        <li>
+          <div class="apollo-point apollo-point-past" style="left: ${past.position}%;"></div>
+        </li>
+      `
+    })
+
+    html += `
         </ul>
       </figure>
       <div class="apollo-sentiment-label" style="float: left">
@@ -133,6 +147,11 @@ class Sidebar {
       </div>
     `
     this.sentiment.innerHTML = html;
+
+    this.past_sentiments.push({ tweet_id: tweet_id, position: position })
+    if (this.past_sentiments.length > 10) {
+      this.past_sentiments.shift()
+    }
   }
 
   addRelatedArticles(json) {

@@ -211,6 +211,7 @@ a.apollo-related-article {
   width: 15px;
   margin-left: -8px;
   margin-top: -8px;
+  z-index: 10;
 }
 
 .apollo-point-negative {
@@ -232,6 +233,18 @@ a.apollo-related-article {
 .apollo-point-background {
   border: 1px solid white;
   background-color: white;
+}
+
+.apollo-point-past {
+  border: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  height: 8px;
+  position: absolute;
+  width: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  z-index: 0;
 }
 
 .apollo-midpoint {
