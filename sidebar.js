@@ -16,8 +16,6 @@ class Sidebar {
           <div>
             <div class="apollo-section-header">Headline</div>
             <div id="apollo-headline"></div>
-            <div id="apollo-excerpt"></div>
-            <div><span id="apollo-site"></span></div>
             <div id="apollo-date">Last updated</div>
           </div>
           <div class="apollo-divider"></div>
@@ -43,8 +41,6 @@ class Sidebar {
 
     this.image = document.getElementById('apollo-image');
     this.headline = document.getElementById('apollo-headline');
-    this.excerpt = document.getElementById('apollo-excerpt');
-    this.site = document.getElementById('apollo-site');
     this.date = document.getElementById('apollo-date');
     this.author = document.getElementById('apollo-author');
     this.related = document.getElementById('apollo-related');
@@ -54,8 +50,6 @@ class Sidebar {
     this.image.classList.add("apollo-hidden");
     this.image.src = null;
     this.headline.innerHTML = loading_html;
-    this.excerpt.innerHTML = null;
-    this.site.innerHTML = null;
     this.date.innerHTML = null;
     this.author.innerHTML = loading_html;
     this.related.innerHTML = loading_html;
@@ -80,8 +74,6 @@ class Sidebar {
       this.image.classList.remove("apollo-hidden");
     }
     this.headline.innerHTML = json.title;
-    // this.excerpt.innerHTML = json.excerpt;
-    //this.site.innerHTML = json.site;
     let date = json.date ? (new Date(json.date))
       .toLocaleString('en-US', 
         { year: 'numeric',
