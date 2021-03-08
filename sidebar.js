@@ -1,4 +1,5 @@
 const profile_img = chrome.extension.getURL('img/Profile.svg');
+const fallback_img = chrome.extension.getURL('img/fallback_thumbnail.jpg');
 const loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
 class Sidebar {
@@ -116,7 +117,7 @@ class Sidebar {
     json.forEach(article => {
       html += `
         <a href=${article.url} class="apollo-related-article" target="_blank" rel="noopener noreferrer">
-          <img src=${article.image}></img>
+          <img src=${article.image || fallback_img}></img>
           <div>
             <div>${article.title}</div>
             <div>${article.source}</div>
@@ -126,5 +127,8 @@ class Sidebar {
     });
 
     this.related.innerHTML = html;
+    this.related.querySelectorAll('img').forEach((element) => {
+      element.onerror = (e) => { element.src = fallback_img };
+    });
   }
 }
