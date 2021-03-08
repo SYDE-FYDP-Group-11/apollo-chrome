@@ -14,7 +14,7 @@ class Sidebar {
         <img id="apollo-image" class="apollo-hidden"></img> 
         <div>
           <div>
-            <div class="apollo-section-header">Headline <a data-tooltip="headline"></a></div>
+            <div class="apollo-section-header">Headline</div>
             <div id="apollo-headline"></div>
             <div id="apollo-excerpt"></div>
             <div><span id="apollo-site"></span></div>
@@ -22,7 +22,10 @@ class Sidebar {
           </div>
           <div class="apollo-divider"></div>
           <div>
-            <div class="apollo-section-header">Author</div>
+            <div class="apollo-section-header">
+              Author
+              <a data-tooltip="author"></a>
+            </div>
             <div id="apollo-author"></div>
           </div>
           <div class="apollo-divider"></div>
