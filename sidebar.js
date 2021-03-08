@@ -28,12 +28,11 @@ class Sidebar {
           </div>
           <div class="apollo-divider"></div>
           <div>
-            <div class="apollo-section-header">Sentiment</div>
-            <div id="apollo-sentiment"></div>
             <div class="apollo-section-header">
               Sentiment
               <a data-tooltip="sentiment"></a>
             </div>
+            <div id="apollo-sentiment"></div>
           </div>
           <div class="apollo-divider"></div>
           <div>
