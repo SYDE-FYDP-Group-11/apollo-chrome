@@ -219,6 +219,14 @@ a.apollo-related-article {
   background-color: rgba(31, 193, 184, var(--alpha));
 }
 
+.apollo-point-neutral {
+  background-color: white;
+}
+
+.apollo-point-mixed {
+  background: linear-gradient(.25turn, rgb(255, 125, 4), rgb(255, 125, 4) 49%, rgb(31, 193, 184) 51%, rgb(31, 193, 184))
+}
+
 .apollo-point-background {
   border: 1px solid white;
   background-color: white;

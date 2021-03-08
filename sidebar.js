@@ -93,7 +93,7 @@ class Sidebar {
 
   addSentimentAnalysis(json) {
     let position = ((json.score + 1) / 2) * 100
-    let type = json.score > 0 ? 'positive' : 'negative'
+    let type = json.label
     let alpha = Math.abs(json.score)
 
     let html = `
@@ -101,13 +101,13 @@ class Sidebar {
       <figure class="apollo-plot">
         <ul class="apollo-line">
           <li>
+            <div class="apollo-midpoint"></div>
+          </li>
+          <li>
             <div class="apollo-point apollo-point-background" style="left: ${position}%;"></div>
           </li>
           <li>
             <div class="apollo-point apollo-point-${type}" style="left: ${position}%; --alpha: ${alpha}"></div>
-          </li>
-          <li>
-            <div class="apollo-midpoint"></div>
           </li>
         </ul>
       </figure>
