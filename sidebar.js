@@ -14,7 +14,7 @@ class Sidebar {
         <img id="apollo-image" class="apollo-hidden"></img> 
         <div>
           <div>
-            <div class="apollo-section-header">Headline</div>
+            <div class="apollo-section-header">Headline <span data-tooltip="headline"></span></div>
             <div id="apollo-headline"></div>
             <div id="apollo-excerpt"></div>
             <div><span id="apollo-site"></span></div>
@@ -39,7 +39,9 @@ class Sidebar {
     `;
     document.body.appendChild(this.sidebar);
 
-    document.getElementById('apollo-close').onclick = this.close.bind(this)
+    document.getElementById('apollo-close').onclick = this.close.bind(this);
+
+    this.sidebar.querySelectorAll('[data-tooltip]').forEach(initializeTooltip);
 
     this.image = document.getElementById('apollo-image');
     this.headline = document.getElementById('apollo-headline');
@@ -48,6 +50,8 @@ class Sidebar {
     this.date = document.getElementById('apollo-date');
     this.author = document.getElementById('apollo-author');
     this.related = document.getElementById('apollo-related');
+
+    this.open()
   }
 
   clear() {
