@@ -137,10 +137,10 @@ class Sidebar {
         </ul>
       </figure>
       <div class="apollo-sentiment-label" style="float: left">
-      <span class="apollo-sentiment-label-circle apollo-point-label-negative" style="--alpha: 1"></span>Negative
+      <span class="apollo-sentiment-label-circle apollo-point-label-negative"></span>Negative
       </div>
       <div class="apollo-sentiment-label" style="float: right">
-      <span class="apollo-sentiment-label-circle apollo-point-label-positive" style="--alpha: 1"></span>Positive
+      <span class="apollo-sentiment-label-circle apollo-point-label-positive"></span>Positive
       </div>
       <div class="apollo-sentiment-label" style="margin: 0 auto; width: 200px; text-align: center">
         <span class="apollo-sentiment-label-circle apollo-point-neutral"></span>Neutral or <span class="apollo-sentiment-label-circle apollo-point-mixed"></span>Mixed
