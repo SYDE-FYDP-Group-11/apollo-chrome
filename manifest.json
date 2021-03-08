@@ -8,12 +8,13 @@
         "matches": ["https://twitter.com/*"],
         "run_at": "document_end",
         "js": [
+          "tooltip.js",
           "sidebar.js",
           "server_connector.js",
           "annotator.js",
           "apollo.js"
         ],
-        "css": ["apollo.css", "loading_icons.css"]
+        "css": ["apollo.css", "loading_icons.css", "external/microtip.css"]
       }
     ],
     "background": {
@@ -23,7 +24,8 @@
     "web_accessible_resources": [
       "fonts/inter_variable.ttf",
       "fonts/playfair_display_variable.ttf",
-      "img/Profile.svg"
+      "img/Profile.svg",
+      "img/tooltip-icon.svg"
     ],
     "manifest_version": 2
   }

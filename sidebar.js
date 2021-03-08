@@ -20,17 +20,27 @@ class Sidebar {
           </div>
           <div class="apollo-divider"></div>
           <div>
-            <div class="apollo-section-header">Author</div>
+            <div class="apollo-section-header">
+              Author
+              <a data-tooltip="author"></a>
+            </div>
             <div id="apollo-author"></div>
           </div>
           <div class="apollo-divider"></div>
           <div>
             <div class="apollo-section-header">Sentiment</div>
             <div id="apollo-sentiment"></div>
+            <div class="apollo-section-header">
+              Sentiment
+              <a data-tooltip="sentiment"></a>
+            </div>
           </div>
           <div class="apollo-divider"></div>
           <div>
-            <div class="apollo-section-header">Related Articles</div>
+            <div class="apollo-section-header">
+              Related Articles
+              <a data-tooltip="related-articles"></a>
+            </div>
             <div id="apollo-related"></div>
           </div>
         </div>
@@ -38,7 +48,9 @@ class Sidebar {
     `;
     document.body.appendChild(this.sidebar);
 
-    document.getElementById('apollo-close').onclick = this.close.bind(this)
+    document.getElementById('apollo-close').onclick = this.close.bind(this);
+
+    this.sidebar.querySelectorAll('[data-tooltip]').forEach(initializeTooltip);
 
     this.image = document.getElementById('apollo-image');
     this.headline = document.getElementById('apollo-headline');
