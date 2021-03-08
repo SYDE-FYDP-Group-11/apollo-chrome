@@ -25,7 +25,7 @@ class Sidebar {
           </div>
           <div class="apollo-divider"></div>
           <div>
-            <div class="apollo-section-header">Sentiment Analysis</div>
+            <div class="apollo-section-header">Sentiment</div>
             <div id="apollo-sentiment"></div>
           </div>
           <div class="apollo-divider"></div>
@@ -111,9 +111,11 @@ class Sidebar {
           </li>
         </ul>
       </figure>
-      <div style="float: left">Negative</div>
-      <div style="float: right">Positive</div>
-      <div style="margin: 0 auto; width: 200px; text-align:center">Neutral or Mixed</div>
+      <div class="apollo-sentiment-label" style="float: left">Negative</div>
+      <div class="apollo-sentiment-label" style="float: right">Positive</div>
+      <div class="apollo-sentiment-label" style="margin: 0 auto; width: 200px; text-align: center">
+        <span class="apollo-sentiment-label-neutral"></span>Neutral or <span class="apollo-sentiment-label-mixed"></span>Mixed
+      </div>
     `
     this.sentiment.innerHTML = html;
   }

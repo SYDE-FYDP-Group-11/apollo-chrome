@@ -187,7 +187,7 @@ a.apollo-related-article {
 .apollo-plot {
   border-bottom: 1px solid;
   height: 0;
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 20px;
   margin-left: 0px;
   margin-right: 0px;
@@ -224,7 +224,7 @@ a.apollo-related-article {
 }
 
 .apollo-point-mixed {
-  background: linear-gradient(.25turn, rgb(255, 125, 4), rgb(255, 125, 4) 49%, rgb(31, 193, 184) 51%, rgb(31, 193, 184))
+  background: linear-gradient(.25turn, rgb(255, 125, 4), rgb(255, 125, 4) 49%, rgb(31, 193, 184) 51%, rgb(31, 193, 184));
 }
 
 .apollo-point-background {
@@ -239,4 +239,31 @@ a.apollo-related-article {
   margin-top: -10px;
   left: 50%;
   z-index: -1;
+}
+
+.apollo-sentiment-label {
+  font-family: "inter";
+  font-size: 9pt;
+}
+
+.apollo-sentiment-label-neutral {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  background-color: white;
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.apollo-sentiment-label-mixed {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  background: linear-gradient(.25turn, rgb(255, 125, 4), rgb(255, 125, 4) 49%, rgb(31, 193, 184) 51%, rgb(31, 193, 184));
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
 }
