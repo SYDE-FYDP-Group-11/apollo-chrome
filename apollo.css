@@ -31,7 +31,7 @@ body.noscroll::-webkit-scrollbar {
 
 .apollo-button {
   margin: auto 0;
-  padding 0 5px;
+  padding: 0 5px;
   background-color: #DBFF00;
   height: 30px;
   width: 90px;
