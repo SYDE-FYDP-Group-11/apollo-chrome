@@ -14,7 +14,7 @@ class Sidebar {
         <img id="apollo-image" class="apollo-hidden"></img> 
         <div>
           <div>
-            <div class="apollo-section-header">Headline <span data-tooltip="headline"></span></div>
+            <div class="apollo-section-header">Headline <a data-tooltip="headline"></a></div>
             <div id="apollo-headline"></div>
             <div id="apollo-excerpt"></div>
             <div><span id="apollo-site"></span></div>

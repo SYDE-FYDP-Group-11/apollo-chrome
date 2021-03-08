@@ -24,7 +24,8 @@
     "web_accessible_resources": [
       "fonts/inter_variable.ttf",
       "fonts/playfair_display_variable.ttf",
-      "img/Profile.svg"
+      "img/Profile.svg",
+      "img/tooltip-icon.svg"
     ],
     "manifest_version": 2
   }
