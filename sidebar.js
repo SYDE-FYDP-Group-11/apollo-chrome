@@ -30,11 +30,17 @@ class Sidebar {
           </div>
           <div class="apollo-divider"></div>
           <div>
-            <div class="apollo-section-header">Sentiment Analysis</div>
+            <div class="apollo-section-header">
+              Sentiment Analysis
+              <a data-tooltip="sentiment"></a>
+            </div>
           </div>
           <div class="apollo-divider"></div>
           <div>
-            <div class="apollo-section-header">Related Articles</div>
+            <div class="apollo-section-header">
+              Related Articles
+              <a data-tooltip="related-articles"></a>
+            </div>
             <div id="apollo-related"></div>
           </div>
         </div>
@@ -53,8 +59,6 @@ class Sidebar {
     this.date = document.getElementById('apollo-date');
     this.author = document.getElementById('apollo-author');
     this.related = document.getElementById('apollo-related');
-
-    this.open()
   }
 
   clear() {
