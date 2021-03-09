@@ -145,7 +145,7 @@ body.noscroll::-webkit-scrollbar {
 }
 
 #apollo-author > embed {
-  height: 20px;
+  height: 18px;
   margin-right: 5px;
   vertical-align: middle;
 }

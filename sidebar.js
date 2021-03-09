@@ -1,4 +1,5 @@
 const profile_img = chrome.extension.getURL('img/Profile.svg');
+const warning_img = chrome.extension.getURL('img/alert-triangle.svg');
 const fallback_img = chrome.extension.getURL('img/fallback_thumbnail.jpg');
 const close_img = chrome.extension.getURL('img/xbutton.png');
 const loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
@@ -111,7 +112,8 @@ class Sidebar {
     this.date.innerHTML = `Last Updated <span>${date}</span>`;
 
     let author = json.byline ? json.byline : 'Unknown';
-    this.author.innerHTML = `<embed src="${profile_img}">` + author;
+    let author_img = json.byline ? profile_img : warning_img;
+    this.author.innerHTML = `<embed src="${author_img}">` + author;
   }
 
   addSentimentAnalysis(json) {
