@@ -128,12 +128,16 @@ body.noscroll::-webkit-scrollbar {
 }
 
 #apollo-headline {
+  margin-bottom: 15px;
+}
+
+#apollo-headline a {
   font-family: 'Playfair Display';
+  text-decoration: none;
   font-variation-settings: 'wght' 700;
   font-size: 16pt;
   line-height: 140%;
   color: #101419;
-  margin-bottom: 15px;
 }
 
 #apollo-date span, #apollo-author {

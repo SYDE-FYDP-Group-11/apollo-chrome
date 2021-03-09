@@ -94,7 +94,10 @@ class Sidebar {
       this.image.src = json.image;
       this.image.classList.remove("apollo-hidden");
     }
-    this.headline.innerHTML = json.title;
+    this.headline.innerHTML = `<a href=${json.url} target="_blank"
+      rel="noopener noreferrer">
+        ${json.title}
+      </a>`;
     // this.excerpt.innerHTML = json.excerpt;
     //this.site.innerHTML = json.site;
     let date = json.date ? (new Date(json.date))
