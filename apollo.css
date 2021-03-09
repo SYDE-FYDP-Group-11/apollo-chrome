@@ -31,7 +31,7 @@ body.noscroll::-webkit-scrollbar {
 
 .apollo-button {
   margin: auto 0;
-  padding 0 5px;
+  padding: 0 5px;
   background-color: #DBFF00;
   height: 30px;
   width: 90px;
@@ -184,6 +184,99 @@ a.apollo-related-article {
   font-variation-settings: 'wght' 700;
   line-height: 130%;
   margin-bottom: 5px;
+}
+
+.apollo-plot {
+  border-bottom: 1px solid;
+  height: 0;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+  position: relative;
+  width: 100%;
+}
+
+.apollo-line {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.apollo-point {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 15px;
+  position: absolute;
+  width: 15px;
+  margin-left: -8px;
+  margin-top: -8px;
+  z-index: 10;
+}
+
+.apollo-point-negative {
+  background-color: rgba(255, 125, 4, var(--alpha));
+}
+
+.apollo-point-positive {
+  background-color: rgba(31, 193, 184, var(--alpha));
+}
+
+.apollo-point-neutral {
+  background-color: white;
+}
+
+.apollo-point-mixed {
+  background: linear-gradient(.25turn, rgb(255, 125, 4), rgb(255, 125, 4) 49%, rgb(0, 0, 0) 50%, rgb(31, 193, 184) 51%, rgb(31, 193, 184));
+}
+
+.apollo-point-background {
+  border: 1px solid white;
+  background-color: white;
+}
+
+.apollo-point-past {
+  border: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  height: 8px;
+  position: absolute;
+  width: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  z-index: 0;
+}
+
+.apollo-midpoint {
+  border-left: 1px solid lightgray;
+  height: 20px;
+  position: absolute;
+  margin-top: -10px;
+  left: 50%;
+  z-index: -1;
+}
+
+.apollo-sentiment-label {
+  font-family: "inter";
+  font-size: 9pt;
+}
+
+.apollo-sentiment-label-circle {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.apollo-point-label-negative {
+  background: linear-gradient(.25turn, rgb(255, 125, 4), rgb(255, 255, 255));
+}
+
+.apollo-point-label-positive {
+  background: linear-gradient(.25turn, rgb(255, 255, 255), rgb(31, 193, 184));
 }
 
 .apollo [data-tooltip] {

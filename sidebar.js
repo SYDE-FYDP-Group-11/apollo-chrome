@@ -3,6 +3,8 @@ const loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div
 
 class Sidebar {
   constructor() {
+    this.past_sentiments = []
+
     this.sidebar = document.createElement("div");
     this.sidebar.className = "apollo-sidebar apollo apollo-hidden-sidebar";
     this.sidebar.innerHTML = `
@@ -16,8 +18,6 @@ class Sidebar {
           <div>
             <div class="apollo-section-header">Headline</div>
             <div id="apollo-headline"></div>
-            <div id="apollo-excerpt"></div>
-            <div><span id="apollo-site"></span></div>
             <div id="apollo-date">Last updated</div>
           </div>
           <div class="apollo-divider"></div>
@@ -31,9 +31,10 @@ class Sidebar {
           <div class="apollo-divider"></div>
           <div>
             <div class="apollo-section-header">
-              Sentiment Analysis
+              Sentiment
               <a data-tooltip="sentiment"></a>
             </div>
+            <div id="apollo-sentiment"></div>
           </div>
           <div class="apollo-divider"></div>
           <div>
@@ -54,10 +55,9 @@ class Sidebar {
 
     this.image = document.getElementById('apollo-image');
     this.headline = document.getElementById('apollo-headline');
-    this.excerpt = document.getElementById('apollo-excerpt');
-    this.site = document.getElementById('apollo-site');
     this.date = document.getElementById('apollo-date');
     this.author = document.getElementById('apollo-author');
+    this.sentiment = document.getElementById('apollo-sentiment');
     this.related = document.getElementById('apollo-related');
   }
 
@@ -65,10 +65,9 @@ class Sidebar {
     this.image.classList.add("apollo-hidden");
     this.image.src = null;
     this.headline.innerHTML = loading_html;
-    this.excerpt.innerHTML = null;
-    this.site.innerHTML = null;
     this.date.innerHTML = null;
     this.author.innerHTML = loading_html;
+    this.sentiment.innerHTML = loading_html;
     this.related.innerHTML = loading_html;
   }
 
@@ -91,24 +90,68 @@ class Sidebar {
       this.image.classList.remove("apollo-hidden");
     }
     this.headline.innerHTML = json.title;
-    // this.excerpt.innerHTML = json.excerpt;
-    //this.site.innerHTML = json.site;
     let date = json.date ? (new Date(json.date))
       .toLocaleString('en-US', 
         { year: 'numeric',
           month: 'short',
           day: 'numeric',
-          hour: "numeric",
-          minute: "numeric" })
-      : "Unknown";
+          hour: 'numeric',
+          minute: 'numeric' })
+      : 'Unknown';
     this.date.innerHTML = `Last Updated <span>${date}</span>`;
 
     let author = json.byline ? json.byline : 'Unknown';
     this.author.innerHTML = `<embed src="${profile_img}">` + author;
   }
 
-  addSentimentAnalysis(json) {
-    // TODO
+  addSentimentAnalysis(json, tweet_id) {    
+    this.past_sentiments = this.past_sentiments.filter(past => past.tweet_id != tweet_id)
+    
+    let position = ((json.score + 1) / 2) * 100
+    let type = json.label
+    let alpha = Math.abs(json.score)
+
+    let html = `
+      <div>This article uses language that is...</div>
+      <figure class="apollo-plot">
+        <ul class="apollo-line">
+          <li>
+            <div class="apollo-midpoint"></div>
+          </li>
+          <li>
+            <div class="apollo-point apollo-point-background" style="left: ${position}%;"></div>
+          </li>
+          <li>
+            <div class="apollo-point apollo-point-${type}" style="left: ${position}%; --alpha: ${alpha};"></div>
+          </li>
+    `
+    this.past_sentiments.forEach(past => {
+      html += `
+        <li>
+          <div class="apollo-point apollo-point-past" style="left: ${past.position}%;"></div>
+        </li>
+      `
+    })
+
+    html += `
+        </ul>
+      </figure>
+      <div class="apollo-sentiment-label" style="float: left">
+      <span class="apollo-sentiment-label-circle apollo-point-label-negative"></span>Negative
+      </div>
+      <div class="apollo-sentiment-label" style="float: right">
+      <span class="apollo-sentiment-label-circle apollo-point-label-positive"></span>Positive
+      </div>
+      <div class="apollo-sentiment-label" style="margin: 0 auto; width: 200px; text-align: center">
+        <span class="apollo-sentiment-label-circle apollo-point-neutral"></span>Neutral or <span class="apollo-sentiment-label-circle apollo-point-mixed"></span>Mixed
+      </div>
+    `
+    this.sentiment.innerHTML = html;
+
+    this.past_sentiments.push({ tweet_id: tweet_id, position: position })
+    if (this.past_sentiments.length > 10) {
+      this.past_sentiments.shift()
+    }
   }
 
   addRelatedArticles(json) {
