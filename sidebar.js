@@ -1,6 +1,8 @@
 const profile_img = chrome.extension.getURL('img/Profile.svg');
 const loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
+const sentiment_history_max = 10;
+
 class Sidebar {
   constructor() {
     this.past_sentiments = []
@@ -116,7 +118,13 @@ class Sidebar {
       <figure class="apollo-plot">
         <ul class="apollo-line">
           <li>
-            <div class="apollo-midpoint"></div>
+            <div class="apollo-point-vertical" style="left: 0%"></div>
+          </li>
+          <li>
+            <div class="apollo-point-vertical" style="left: 50%"></div>
+          </li>
+          <li>
+            <div class="apollo-point-vertical" style="left: 100%"></div>
           </li>
           <li>
             <div class="apollo-point apollo-point-background" style="left: ${position}%;"></div>
@@ -128,7 +136,7 @@ class Sidebar {
     this.past_sentiments.forEach(past => {
       html += `
         <li>
-          <div class="apollo-point apollo-point-past" style="left: ${past.position}%;"></div>
+          <div class="apollo-point-past" style="left: ${past.position}%;"></div>
         </li>
       `
     })
@@ -136,20 +144,17 @@ class Sidebar {
     html += `
         </ul>
       </figure>
-      <div class="apollo-sentiment-label" style="float: left">
-      <span class="apollo-sentiment-label-circle apollo-point-label-negative"></span>Negative
-      </div>
-      <div class="apollo-sentiment-label" style="float: right">
-      <span class="apollo-sentiment-label-circle apollo-point-label-positive"></span>Positive
-      </div>
+      <div class="apollo-sentiment-label" style="float: left">Negative</div>
+      <div class="apollo-sentiment-label" style="float: right">Positive</div>
       <div class="apollo-sentiment-label" style="margin: 0 auto; width: 200px; text-align: center">
-        <span class="apollo-sentiment-label-circle apollo-point-neutral"></span>Neutral or <span class="apollo-sentiment-label-circle apollo-point-mixed"></span>Mixed
+        <span class="apollo-sentiment-label-circle apollo-point-neutral"></span>Neutral <span>or</span> <span class="apollo-sentiment-label-circle apollo-point-mixed"></span>Mixed
       </div>
+      <div class="apollo-past-label"><span class="apollo-sentiment-label-diamond apollo-point-past"></span>Previously viewed articles (max ${sentiment_history_max})</div>
     `
     this.sentiment.innerHTML = html;
 
     this.past_sentiments.push({ tweet_id: tweet_id, position: position })
-    if (this.past_sentiments.length > 10) {
+    if (this.past_sentiments.length > sentiment_history_max) {
       this.past_sentiments.shift()
     }
   }
