@@ -13,10 +13,6 @@ chrome.runtime.onConnect.addListener(port => {
 	})
 })
 
-chrome.browserAction.onClicked.addListener(() => {
-	chrome.tabs.create({ url: "about.html" });
-});
-
 chrome.runtime.onInstalled.addListener(() => {
     chrome.tabs.create({ url: "about.html" });
 });
