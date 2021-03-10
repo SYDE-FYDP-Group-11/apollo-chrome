@@ -52,14 +52,13 @@ const processArticle = function(article) {
   const regex = /(?<=\/status\/)[0-9]+/;
   const tweet_id = tweet_link.getAttribute("href").match(regex)[0];
 
-  const button = addButton(article);
+  const card = article_link.closest('[data-testid="card.wrapper"]');
+  const button = addButton(article, article_link, card);
   button.onclick = () => {
     sidebar.open();
+    addPersistentHighlight(card || article_link);
     serverConnector.requestTweetData(tweet_id);
   };
-
-  highlightLink(article_link);
-  console.log(article_link);
 
   article.dataset.apolloed = true;
 };

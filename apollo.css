@@ -23,21 +23,20 @@ body.noscroll::-webkit-scrollbar {
 }
 
 .apollo-button {
+  margin-top: 12px;
+}
+
+.apollo-button button {
   margin: auto 0;
-  padding 0 5px;
+  padding: 0 10px;
   background-color: #DBFF00;
   height: 30px;
-  width: 90px;
   border-radius: 15px;
   border: 2px solid black;
   font-weight: bold;
 }
 
-.apollo-has-button {
-  max-width: unset !important;
-}
-
-.apollo-button:hover {
+.apollo-button button:hover {
   background-color: #CCF000;
 }
 
@@ -193,6 +192,11 @@ a.apollo-related-article {
   margin-left: 5px;
 }
 
-[data-apollo-link="highlighted"] {
+a[data-apollo-highlighted] {
   background-color: #DBFF00 !important;
+}
+
+div[data-apollo-highlighted] {
+  box-shadow: 0 0 0px 3px #dbff00, 0 0 0px 5px #000000;
+  border-color: #dbff00;
 }
