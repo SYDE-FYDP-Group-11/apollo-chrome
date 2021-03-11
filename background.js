@@ -14,5 +14,5 @@ chrome.runtime.onConnect.addListener(port => {
 })
 
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.tabs.create({ url: "about.html" });
+    chrome.tabs.create({ url: "https://syde-fydp-group-11.github.io/apollo-about/" });
 });
