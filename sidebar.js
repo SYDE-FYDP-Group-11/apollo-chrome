@@ -4,8 +4,15 @@ const fallback_img = chrome.extension.getURL('img/fallback_thumbnail.jpg');
 const close_img = chrome.extension.getURL('img/xbutton.png');
 const loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
+// Maximum number of past Tweet sentiments stored by the extension
+// This history is stored locally only and associated with this Sidebar object
+// The history is reset when the page is refreshed or the user navigates elsewhere
 const sentiment_history_max = 10;
 
+// The Sidebar class appears on the right side of the user's browser
+// It formats and displays information returned from the GCP server
+// The code here only writes additional HTML to the page
+// There is no reading or modification of existing page elements in this section
 class Sidebar {
   constructor() {
     this.past_sentiments = []
