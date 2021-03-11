@@ -10,7 +10,7 @@ class ServerConnector {
             sidebar.addArticleInfo(msg.content)
             break
           case 'sentiment_analysis':
-            sidebar.addSentimentAnalysis(msg.content)
+            sidebar.addSentimentAnalysis(msg.content, msg.tweet_id)
             break
           case 'related_articles':
             sidebar.addRelatedArticles(msg.content)
