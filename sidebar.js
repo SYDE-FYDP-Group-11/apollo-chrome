@@ -44,7 +44,6 @@ class Sidebar {
           <div>
             <div class="apollo-section-header">
               Related Articles
-              <a data-tooltip="related-articles"></a>
             </div>
             <div id="apollo-related"></div>
           </div>
@@ -135,6 +134,11 @@ class Sidebar {
         </a>
       `
     });
+
+    html += `<div class=apollo-datanews>
+      Articles sourced from
+      <a href="http://datanews.io" target="_blank" rel="noopener noreferrer">datanews.io</a>
+    </div>`;
 
     this.related.innerHTML = html;
     this.related.querySelectorAll('img').forEach((element) => {
