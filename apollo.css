@@ -10,11 +10,6 @@
   src: url("chrome-extension://__MSG_@@extension_id__/fonts/playfair_display_variable.ttf");
 }
 
-body.noscroll::-webkit-scrollbar { 
-  width: 0 !important;
-  display: none; 
-}
-
 .apollo {
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Ubuntu,
@@ -36,8 +31,17 @@ body.noscroll::-webkit-scrollbar {
   font-weight: bold;
 }
 
+.apollo-button button.apollo-open {
+  background-color: black;
+  color: #DBFF00;
+}
+
 .apollo-button button:hover {
   background-color: #CCF000;
+}
+
+.apollo-button button.apollo-open:hover {
+  background-color: #222;
 }
 
 .apollo-sidebar {
@@ -192,11 +196,22 @@ a.apollo-related-article {
   margin-left: 5px;
 }
 
-a[data-apollo-highlighted] {
+a[data-apollo-highlighted="true"] {
   background-color: #EFFC9C !important;
 }
 
-div[data-apollo-highlighted] {
+div[data-apollo-highlighted="true"] {
   box-shadow: 0 0 0px 3px #dbff00, 0 0 0px 5px #000000;
   border-color: #dbff00;
+}
+
+a[data-apollo-highlighted="persistent"] {
+  transition: background-color 0.5s;
+  background-color: #ddd !important;
+}
+
+div[data-apollo-highlighted="persistent"] {
+  transition: box-shadow 0.5s;
+  box-shadow: 0 0 0px 2px #000;
+  border-color: #000;
 }

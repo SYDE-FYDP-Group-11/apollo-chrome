@@ -32,8 +32,19 @@ const addPersistentHighlight = function(link) {
   link.dataset.apolloHighlighted = "persistent";
 }
 
-const removePersistentHighlights = function(){
+const removePersistentHighlights = function() {
   document.querySelectorAll("[data-apollo-highlighted='persistent']").forEach((e) => {
     delete e.dataset.apolloHighlighted;
+  })
+}
+
+const styleButtonAsOpen = function(button) {
+  removeOpenButtonStyling();
+  button.classList.add("apollo-open");
+}
+
+const removeOpenButtonStyling = function() {
+  document.querySelectorAll(".apollo-button .apollo-open").forEach((e) => {
+    e.classList.remove("apollo-open");
   })
 }

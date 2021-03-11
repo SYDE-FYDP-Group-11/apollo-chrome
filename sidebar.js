@@ -86,6 +86,7 @@ class Sidebar {
 
   close() {
     removePersistentHighlights();
+    removeOpenButtonStyling();
     this.sidebar.classList.add("apollo-hidden-sidebar");
     if (document.body.classList.contains("noscroll"))
       document.body.classList.remove("noscroll");

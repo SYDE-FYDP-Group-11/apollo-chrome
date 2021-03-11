@@ -57,6 +57,7 @@ const processArticle = function(article) {
   button.onclick = () => {
     sidebar.open();
     addPersistentHighlight(card || article_link);
+    styleButtonAsOpen(button);
     serverConnector.requestTweetData(tweet_id);
   };
 
