@@ -1,11 +1,16 @@
   {
     "name": "Apollo",
-    "version": "1.0.0",
-    "description": "Browser extension to help users avoid information disorder on Twitter",
-    "permissions": ["activeTab", "https://apollo3.nn.r.appspot.com/"],
+    "version": "0.1.0",
+    "description": "Apollo helps you avoid information disorder on Twitter by gathering and presenting supplementary information.",
+    "permissions": [
+      "activeTab",
+      "https://apollo3.nn.r.appspot.com/"
+    ],
     "content_scripts": [
       {
-        "matches": ["https://twitter.com/*"],
+        "matches": [
+          "https://twitter.com/*"
+        ],
         "run_at": "document_end",
         "js": [
           "tooltip.js",
@@ -14,11 +19,17 @@
           "annotator.js",
           "apollo.js"
         ],
-        "css": ["apollo.css", "loading_icons.css", "external/microtip.css"]
+        "css": [
+          "apollo.css",
+          "loading_icons.css",
+          "external/microtip.css"
+        ]
       }
     ],
     "background": {
-      "scripts": ["background.js"],
+      "scripts": [
+        "background.js"
+      ],
       "persistent": false
     },
     "web_accessible_resources": [
@@ -27,5 +38,13 @@
       "img/Profile.svg",
       "img/tooltip-icon.svg"
     ],
+    "icons": {
+      "16": "img/icon16.png",
+      "48": "img/icon48.png",
+      "128": "img/icon128.png"
+    },
+    "browser_action": {
+      "default_popup": "popup.html"
+    },
     "manifest_version": 2
   }
