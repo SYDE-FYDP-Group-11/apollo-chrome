@@ -1,9 +1,8 @@
 const tooltip_img = chrome.extension.getURL('img/tooltip-icon.svg');
 
 const tooltips = {
-  "author": "Apollo will attempt to identify the author automatically. If there is no author listed, we encourage you to try to identify the author manually.",
-  "sentiment": "Sentiment tooltip",
-  "related-articles": "The quick brown fox jumps over the overworked dog"
+  "author": "The presence and credibility of an author is very important in determining the quality of sources.\n\nIf there is no author listed, evaluate the authority of the company/business/ organization that published the information.",
+  "sentiment": "Misinformation is significantly more likely to make readers feel negative emotions compared to accurate information.\n\nApollo shows you when an article is doing this.",
 };
 
 const initializeTooltip = function(span) {

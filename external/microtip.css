@@ -256,7 +256,7 @@
 }
 
 [role~="tooltip"][data-microtip-size="medium"]::after {
-  white-space: initial;
+  white-space: pre-line;
   width: 150px;
 }
 
