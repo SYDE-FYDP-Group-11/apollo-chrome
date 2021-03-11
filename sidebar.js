@@ -1,4 +1,7 @@
 const profile_img = chrome.extension.getURL('img/Profile.svg');
+const warning_img = chrome.extension.getURL('img/alert-triangle.svg');
+const fallback_img = chrome.extension.getURL('img/fallback_thumbnail.jpg');
+const close_img = chrome.extension.getURL('img/xbutton.png');
 const loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
 const sentiment_history_max = 10;
@@ -12,7 +15,9 @@ class Sidebar {
     this.sidebar.innerHTML = `
       <div class="apollo-header">
         Apollo
-        <span class="apollo-close" id="apollo-close">\u2A2F</span>
+        <a class="apollo-close" id="apollo-close">
+          <img src="${close_img}" alt="close"></img>
+        </a>
       </div>
       <div class="apollo-box">
         <img id="apollo-image" class="apollo-hidden"></img> 
@@ -42,7 +47,6 @@ class Sidebar {
           <div>
             <div class="apollo-section-header">
               Related Articles
-              <a data-tooltip="related-articles"></a>
             </div>
             <div id="apollo-related"></div>
           </div>
@@ -81,6 +85,8 @@ class Sidebar {
   }
 
   close() {
+    removePersistentHighlights();
+    removeOpenButtonStyling();
     this.sidebar.classList.add("apollo-hidden-sidebar");
     if (document.body.classList.contains("noscroll"))
       document.body.classList.remove("noscroll");
@@ -91,7 +97,10 @@ class Sidebar {
       this.image.src = json.image;
       this.image.classList.remove("apollo-hidden");
     }
-    this.headline.innerHTML = json.title;
+    this.headline.innerHTML = `<a href=${json.url} target="_blank"
+      rel="noopener noreferrer">
+        ${json.title}
+      </a>`;
     let date = json.date ? (new Date(json.date))
       .toLocaleString('en-US', 
         { year: 'numeric',
@@ -103,7 +112,8 @@ class Sidebar {
     this.date.innerHTML = `Last Updated <span>${date}</span>`;
 
     let author = json.byline ? json.byline : 'Unknown';
-    this.author.innerHTML = `<embed src="${profile_img}">` + author;
+    let author_img = json.byline ? profile_img : warning_img;
+    this.author.innerHTML = `<embed src="${author_img}">` + author;
   }
 
   addSentimentAnalysis(json, tweet_id) {    
@@ -163,8 +173,8 @@ class Sidebar {
     let html = `<div>We found ${json.length} articles related to this headline</div>`;
     json.forEach(article => {
       html += `
-        <a href=${article.url} class="apollo-related-article">
-          <img src=${article.image}></img>
+        <a href=${article.url} class="apollo-related-article" target="_blank" rel="noopener noreferrer">
+          <img src=${article.image || fallback_img}></img>
           <div>
             <div>${article.title}</div>
             <div>${article.source}</div>
@@ -173,6 +183,14 @@ class Sidebar {
       `
     });
 
+    html += `<div class=apollo-datanews>
+      Articles sourced from
+      <a href="http://datanews.io" target="_blank" rel="noopener noreferrer">datanews.io</a>
+    </div>`;
+
     this.related.innerHTML = html;
+    this.related.querySelectorAll('img').forEach((element) => {
+      element.onerror = (e) => { element.src = fallback_img };
+    });
   }
 }

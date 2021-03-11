@@ -42,7 +42,8 @@ const processArticle = function(article) {
   if (article.dataset.apolloed)
     return;
 
-  if (!article.querySelector('a[href^="https://t.co/"]'))
+  const article_link = article.querySelector('a[href^="https://t.co/"]');
+  if (!article_link)
     return;
 
   const tweet_link = article.querySelector('a[href*="/status/"]');
@@ -51,9 +52,12 @@ const processArticle = function(article) {
   const regex = /(?<=\/status\/)[0-9]+/;
   const tweet_id = tweet_link.getAttribute("href").match(regex)[0];
 
-  const button = addButton(article);
+  const card = article_link.closest('[data-testid="card.wrapper"]');
+  const button = addButton(article, article_link, card);
   button.onclick = () => {
     sidebar.open();
+    addPersistentHighlight(card || article_link);
+    styleButtonAsOpen(button);
     serverConnector.requestTweetData(tweet_id);
   };
 

@@ -10,19 +10,7 @@
   src: url("chrome-extension://__MSG_@@extension_id__/fonts/playfair_display_variable.ttf");
 }
 
-/* For testing */
-pre.apollo-text {
-  white-space: pre-wrap;
-  margin: 0;
-}
-
-body.noscroll::-webkit-scrollbar { 
-  width: 0 !important;
-  display: none; 
-}
-
 .apollo {
-  /*color: #657786;*/
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Ubuntu,
     "Helvetica Neue", sans-serif;
@@ -30,22 +18,30 @@ body.noscroll::-webkit-scrollbar {
 }
 
 .apollo-button {
+  margin-top: 12px;
+}
+
+.apollo-button button {
   margin: auto 0;
-  padding: 0 5px;
+  padding: 0 10px;
   background-color: #DBFF00;
   height: 30px;
-  width: 90px;
   border-radius: 15px;
   border: 2px solid black;
   font-weight: bold;
 }
 
-.apollo-has-button {
-  max-width: unset !important;
+.apollo-button button.apollo-open {
+  background-color: black;
+  color: #DBFF00;
 }
 
-.apollo-button:hover {
+.apollo-button button:hover {
   background-color: #CCF000;
+}
+
+.apollo-button button.apollo-open:hover {
+  background-color: #222;
 }
 
 .apollo-sidebar {
@@ -81,12 +77,11 @@ body.noscroll::-webkit-scrollbar {
   position: absolute;
   right: 0;
   background-color: #DBFF00;
-  color: black;
   height: 100%;
   width: 50px;
-  text-align: center;
-  font-size: 22pt;
-  line-height: 45px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -136,20 +131,24 @@ body.noscroll::-webkit-scrollbar {
 }
 
 #apollo-headline {
+  margin-bottom: 15px;
+}
+
+#apollo-headline a {
   font-family: 'Playfair Display';
+  text-decoration: none;
   font-variation-settings: 'wght' 700;
   font-size: 16pt;
   line-height: 140%;
   color: #101419;
-  margin-bottom: 15px;
 }
 
 #apollo-date span, #apollo-author {
-  font-weight: 500;
+  font-weight: bold;
 }
 
 #apollo-author > embed {
-  height: 20px;
+  height: 18px;
   margin-right: 5px;
   vertical-align: middle;
 }
@@ -302,4 +301,33 @@ a.apollo-related-article {
 .apollo [data-tooltip] > embed {
   height: 16px;
   margin-left: 5px;
+}
+
+a[data-apollo-highlighted="true"] {
+  background-color: #EFFC9C !important;
+}
+
+div[data-apollo-highlighted="true"] {
+  box-shadow: 0 0 0px 3px #dbff00, 0 0 0px 5px #000000;
+  border-color: #dbff00;
+}
+
+a[data-apollo-highlighted="persistent"] {
+  transition: background-color 0.5s;
+  background-color: #ddd !important;
+}
+
+div[data-apollo-highlighted="persistent"] {
+  transition: box-shadow 0.5s;
+  box-shadow: 0 0 0px 2px #000;
+  border-color: #000;
+}
+
+.apollo-datanews {
+  font-size: 8pt;
+  text-align: center;
+}
+
+.apollo-datanews a {
+  color: black
 }
