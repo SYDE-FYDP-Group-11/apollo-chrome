@@ -23,16 +23,18 @@
 
 .apollo-button button {
   margin: auto 0;
-  padding: 0 10px;
+  padding: 0 16px;
   background-color: #DBFF00;
   height: 30px;
   border-radius: 15px;
   border: 2px solid black;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .apollo-button button.apollo-open {
   background-color: black;
+  box-shadow: 0 0 0px 1px #fff;
   color: #DBFF00;
 }
 
@@ -303,23 +305,27 @@ a.apollo-related-article {
   margin-left: 5px;
 }
 
-a[data-apollo-highlighted="true"] {
-  background-color: #EFFC9C !important;
+a[data-apollo-highlighted] {
+  background-color: #dbff0057 !important;
+  border-width: 2px;
+  border-color: transparent;
+  border-radius: 1px;
+  margin: -2px;
 }
 
 div[data-apollo-highlighted="true"] {
-  box-shadow: 0 0 0px 3px #dbff00, 0 0 0px 5px #000000;
+  box-shadow: 0 0 0px 3px #dbff00;
   border-color: #dbff00;
 }
 
 a[data-apollo-highlighted="persistent"] {
   transition: background-color 0.5s;
-  background-color: #ddd !important;
+  background-color: #ddddddaa !important;
 }
 
 div[data-apollo-highlighted="persistent"] {
-  transition: box-shadow 0.5s;
-  box-shadow: 0 0 0px 2px #000;
+  transition: box-shadow 0.5s ease-out;
+  box-shadow: 0 0 0px 3px #000, 0 0 0px 4px #fff;
   border-color: #000;
 }
 
