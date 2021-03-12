@@ -165,6 +165,10 @@ a.apollo-related-article {
   border: solid 1px transparent;
 }
 
+#apollo-related > div:first-child {
+  margin-bottom: 8px;
+}
+
 .apollo-related-article:hover {
   background-color: #f1f1f1;
   border-color: #efefef;
