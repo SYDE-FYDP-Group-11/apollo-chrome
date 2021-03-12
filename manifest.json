@@ -3,7 +3,6 @@
     "version": "0.1.0",
     "description": "Apollo helps you stay vigilant on Twitter by showing you relevant insights on news articles other users post or share.",
     "permissions": [
-      "activeTab",
       "https://apollo3.nn.r.appspot.com/"
     ],
     "content_scripts": [
