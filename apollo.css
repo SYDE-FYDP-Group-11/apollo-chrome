@@ -332,6 +332,7 @@ div[data-apollo-highlighted="persistent"] {
 .apollo-datanews {
   font-size: 8pt;
   text-align: center;
+  margin-top: 10px;
 }
 
 .apollo-datanews a {
