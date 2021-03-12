@@ -1,3 +1,6 @@
+// This file contains code to annotate existing Tweets
+
+// Add button to a specific Tweet
 const addButton = function(article, article_link, card) {
   let buttonLocation = article_link.parentElement.parentElement;
 
@@ -14,6 +17,8 @@ const addButton = function(article, article_link, card) {
 
   return button;
 }
+
+// Add and remove link highlighting
 
 // Classes are not used to avoid Twitter overwriting the class list
 const addHighlight = function(link) {
@@ -37,6 +42,10 @@ const removePersistentHighlights = function() {
     delete e.dataset.apolloHighlighted;
   })
 }
+
+// Add and remove the "open" button styling so the user
+// can tell which Tweet is currently being analyzed in the
+// sidebar
 
 const styleButtonAsOpen = function(button) {
   removeOpenButtonStyling();
